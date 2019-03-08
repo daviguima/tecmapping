@@ -7,13 +7,13 @@ import random
 #from shapely.geometry import Point
 #import matplotlib.pyplot as plt
 
-
-# export const addressPoints = [
-# [-37.8839, null, "571"],
-# [-37.8869090667, 175.3657417333, "486"],
-# [-37.8894207167, 175.4015351167, "807"]
-# ]
-
+"""
+export const addressPoints = [
+    [-37.8839, null, "571"],
+    [-37.8869090667, 175.3657417333, "486"],
+    [-37.8894207167, 175.4015351167, "807"]
+    ]
+"""
 tec_pandas = pd.read_csv('TEC-raw/AMAP_26_2_2019_0h', sep=';')
 
 # stepsize = 0.5 # em graus (0.001 =~ 1 metro)
