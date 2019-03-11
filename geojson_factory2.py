@@ -5,9 +5,10 @@ import geojson
 tec_pandas = pd.read_csv('TEC-raw/AMAP_26_2_2019_0h', sep=';', header=None)
 tec_pandas = tec_pandas.dropna(axis='columns')
 tec_pandas_list = np.concatenate(np.array(tec_pandas))
+#tec_pandas_list = tec_pandas_list[::-1]
 
 latitude = np.arange(-60, 20, 0.5)
-latitude = np.fliplr([latitude])[0]
+#latitude = np.fliplr([latitude])[0]
 
 longitude = np.arange(-90, -30, 0.5)
 
@@ -32,12 +33,13 @@ def data2geojson(df):
 col = ['lat', 'lon', 'tec']
 
 data = addressPoints
+drop = [d for d in data if d[2] != -1]
 
-print(data[:10])
+print(data[:10],'\n\n',drop[:10])
 # data = [[-29.9953, -70.5867, 760],
 #         [-30.1217, -70.4933, 1250],
 #         [-30.0953, -70.5008, 1185]]
 
-df = pd.DataFrame(data, columns=col)
+df = pd.DataFrame(drop, columns=col)
 
 data2geojson(df)
